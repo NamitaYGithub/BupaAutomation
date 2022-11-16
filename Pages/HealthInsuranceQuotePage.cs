@@ -61,6 +61,7 @@ namespace BupaUIAutomation.Pages
             nextButton.Click(); 
         }
 
+        
         public void VerifyValidationMessage(string expextedTitleValidationMessage, string expectedFirstNameValidationMessage, string expectedLastNameValidationMessage)
         {
 

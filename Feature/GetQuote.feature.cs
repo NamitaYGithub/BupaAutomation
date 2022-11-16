@@ -76,7 +76,7 @@ namespace BupaUIAutomation.Feature
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify the fields on the health insurance quote page and the validation messages." +
             "")]
-        [NUnit.Framework.CategoryAttribute("uitest")]
+        [NUnit.Framework.CategoryAttribute("NewInsuranceQuoteUTest")]
         [NUnit.Framework.TestCaseAttribute("Empty title", "", "Mark", "Moss", "Please select a title.", "", "", null)]
         [NUnit.Framework.TestCaseAttribute("Empty FirstName", "Mr", "", "Moss", "", "Please enter your first name.", "", null)]
         [NUnit.Framework.TestCaseAttribute("Empty LastName", "Mrs", "Mark", "", "", "", "Please enter your last name.", null)]
@@ -92,7 +92,7 @@ namespace BupaUIAutomation.Feature
         public void VerifyTheFieldsOnTheHealthInsuranceQuotePageAndTheValidationMessages_(string description, string yourTitle, string firstName, string lastName, string titleValidationMessage, string firstNameValidationMessage, string lastNameValidationssage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "uitest"};
+                    "NewInsuranceQuoteUTest"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
