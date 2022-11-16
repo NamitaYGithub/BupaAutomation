@@ -20,8 +20,8 @@ namespace BupaUIAutomation.Feature
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Health insurance quote")]
-    public partial class HealthInsuranceQuoteFeature
+    [NUnit.Framework.DescriptionAttribute("Get Bupa new Health insurance quote")]
+    public partial class GetBupaNewHealthInsuranceQuoteFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
@@ -35,7 +35,7 @@ namespace BupaUIAutomation.Feature
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "Health insurance quote", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "Get Bupa new Health insurance quote", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -89,6 +89,11 @@ namespace BupaUIAutomation.Feature
         [NUnit.Framework.TestCaseAttribute("Numbers FirstName", "Dr", "123", "Moss", "", "Please re-enter your first name using only letters", "", null)]
         [NUnit.Framework.TestCaseAttribute("Numbers lastName", "Professor", "Mark", "456", "", "", "Please re-enter your last name using only letters.", null)]
         [NUnit.Framework.TestCaseAttribute("All OK", "Reverend", "Mark", "Moss", "", "", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Non existing title", "sss", "Mark", "Moss", "Please select a title.", "", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Long firstname", "Mr", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbb" +
+            "bbbbbbbbbbbbbbbbbbbbbcccccccccccccccccccccddddddddddddddddddddddddddddd", "Moss", "", "", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Long Last Name", "Mr", "Mark", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbb" +
+            "bbbbbbbbbbbbbbbbbbbbbcccccccccccccccccccccddddddddddddddddddddddddddddd", "", "", "", null)]
         public void VerifyTheFieldsOnTheHealthInsuranceQuotePageAndTheValidationMessages_(string description, string yourTitle, string firstName, string lastName, string titleValidationMessage, string firstNameValidationMessage, string lastNameValidationssage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
