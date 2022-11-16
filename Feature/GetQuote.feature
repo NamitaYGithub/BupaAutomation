@@ -15,9 +15,11 @@ When the user selects title option <YourTitle>
 And the user enters first name <FirstName>
 And the user enters last name <LastName>
 And the user selects the next button
-Then the user checks the validation message <TitleValidation>,<FirstNameValidation>,<LastNameValidation>
+Then the user checks the validation message <TitleValidationMessage>,<FirstNameValidationMessage>,<LastNameValidationssage>
 
 
 Examples:
- | YourTitle | FirstName | LastName |TitleValidation              |FirstNameValidation              |LastNameValidation             |
- |   Mrs     |           | Moss     |                             |   Please enter your first name. |								|
+ |Description        | YourTitle | FirstName | LastName | TitleValidationMessage  | FirstNameValidationMessage    | LastNameValidationssage |
+ | Empty title       |           |           | Moss     | Please select a title.  | Please enter your first name. |                    |
+ | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                    |
+

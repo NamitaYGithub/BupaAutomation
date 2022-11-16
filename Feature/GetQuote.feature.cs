@@ -77,7 +77,7 @@ namespace BupaUIAutomation.Feature
         [NUnit.Framework.DescriptionAttribute("Verify the fileds on the health insurance quote page and the validation messages." +
             "")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("Mrs", "", "Moss", "", "Please enter your first name.", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Mr", "", "Moss", "", "Please enter your first name.", "", null)]
         public void VerifyTheFiledsOnTheHealthInsuranceQuotePageAndTheValidationMessages_(string yourTitle, string firstName, string lastName, string titleValidation, string firstNameValidation, string lastNameValidation, string[] exampleTags)
         {
             string[] @__tags = new string[] {

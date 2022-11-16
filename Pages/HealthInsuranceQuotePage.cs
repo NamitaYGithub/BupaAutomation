@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -70,7 +71,9 @@ namespace BupaUIAutomation.Pages
 
         public void CheckValidationstring (string titleValidation, string firstNameValidation, string LastNameValidation)
         {
-            string t = yourTitleOption.Text;
+            Select objSelect = new Select(developers_dropdown);
+
+            string t = yourTitleOption.TagName;
             string f = firstNameTextBox.GetAttribute("value");  
             string l = lastNameTextBox.GetAttribute("value");
 
