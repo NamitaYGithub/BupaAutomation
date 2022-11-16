@@ -1,9 +1,8 @@
-﻿Feature: Health insurance quote 
-	
+﻿Feature: Health insurance quote 	
 
-@mytag
+@uitest
 
-Scenario Outline: Verify the fileds on the health insurance quote page and the validation messages.
+Scenario Outline: Verify the fields on the health insurance quote page and the validation messages.
 Given the user navigate to the Bupa website
 And the user accepts the cookies
 When the user hover over the health insurance under the mega menu to select get a quote sub menu
@@ -19,7 +18,15 @@ Then the user checks the validation message <TitleValidationMessage>,<FirstNameV
 
 
 Examples:
- |Description        | YourTitle | FirstName | LastName | TitleValidationMessage  | FirstNameValidationMessage    | LastNameValidationssage |
- | Empty title       |           |           | Moss     | Please select a title.  | Please enter your first name. |                    |
- | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                    |
+ |Description        | YourTitle | FirstName | LastName | TitleValidationMessage  | FirstNameValidationMessage    | LastNameValidationssage     |
+ | Empty title       |           | Mark      | Moss     | Please select a title.  | Please enter your first name. |                             |
+ | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
+ | Empty LastNamw    | Mr        | Mark      |          |                         | Please enter your first name. |                             |
+ | All fieds empty   |           |           |          | Please select a title.  | Please enter your first name. | Please enter your last name.|
+ | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
+ | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
+ | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
+ | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
+ | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
+
 

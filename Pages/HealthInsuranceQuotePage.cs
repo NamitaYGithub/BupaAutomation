@@ -71,23 +71,22 @@ namespace BupaUIAutomation.Pages
 
         public void CheckValidationstring (string titleValidation, string firstNameValidation, string LastNameValidation)
         {
-            Select objSelect = new Select(developers_dropdown);
 
-            string t = yourTitleOption.TagName;
-            string f = firstNameTextBox.GetAttribute("value");  
-            string l = lastNameTextBox.GetAttribute("value");
+            string title = yourTitleOption.GetAttribute("value").ToString();
+            string firstName = firstNameTextBox.GetAttribute("value");  
+            string lastName = lastNameTextBox.GetAttribute("value");
 
-            if (string.IsNullOrEmpty(t))
+            if (string.IsNullOrEmpty(title))
             {
                 Assert.AreEqual(titleValidation, titleValidationMessage.Text, "Expected and actual validation message doesn't match");
 
             }
-            else if (string.IsNullOrEmpty(f))
+            else if (string.IsNullOrEmpty(firstName))
             {
                 Assert.AreEqual(firstNameValidation, firstNameValidationMessage.Text, "Expected and actual validation message doesn't match");
             }
 
-            else if (!string.IsNullOrEmpty(l))
+            else if (string.IsNullOrEmpty(lastName))
             {
                 Assert.AreEqual(LastNameValidation, lastNameValidationMessage.Text, "Expected and actual validation message doesn't match");
             }
