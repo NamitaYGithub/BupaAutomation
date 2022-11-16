@@ -1,22 +1,37 @@
-﻿Getting Started with Contoso University UI Automation Project
+﻿Getting Started with Bupa Get A Quote UI Automation Project
 
-This project uses Microsoft .NET C# and Selenium.
-Test cases are created in BDD format using Gherkin language to verify the User story.
+This project uses Microsoft .NET C#, selenium , specflow
 
-Test Charter for Exploratory testing:
-The purpose of this exploratory testing is to verify create/edit/delete instructor page by paying particular attention to:
-•	Check all the input fields for special character and numerical value
-•	Check all the tick boxes within the create/edit/delete instructor pages.
-•	Check all input fields should allow to enter max. no of character as mentioned in the acceptance criteria.
-•	Check the text within create/edit/delete pages should be readable to the user.
-•	Run the query in the database to verify the data when user create/edit /delete the instructor.
-•	Check for any duplicate’s instructor within the list 
-Using: Contoso University website, Database
-looking for:
-Deviation from the Acceptance Criteria.
+Test cases are created in BDD format using Gherkin language
+
+Pre Requisites :
+ - Install visual studio latest community or professional edition
+ - Install specflow plugin from extentions menu
+ - Install latest chrome web browser
+ - Build the solution
+ - Open test explorer and run tests under BupaUIAutomation
+
+ Github link to this project :
+
+ https://github.com/NamitaYGithub/BupaAutomation
+
+ Structure of the project :
+ 
+		Features
+			- Contains gherkin feature files
+		Hooks
+			- Hooks for setting and tearing of selenium web driver
+		Pages
+			- Class files for every page visited during test (Page Object Model)
+		Steps
+			- Step definition files of the project
+
+Diagnosys :
+
+When a test failure occurs details will be logged on console along with browser window screenshot is saved at root of the folder
 
 
-Non-functional Testing:
-•	Insert thousands of records in database and check the page load time.
-•	Do cross browser testing 
-•	Check this feature on mobile browser for both Android and IOS.
+
+
+ 
+

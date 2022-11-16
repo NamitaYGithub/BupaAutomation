@@ -1,9 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BupaUIAutomation.Pages
 {
@@ -16,17 +13,14 @@ namespace BupaUIAutomation.Pages
             Driver = driver;
         }
 
-        IWebElement yourTitleOption => Driver.FindElement(By.CssSelector("#Prospect_ApplicantDetails_TitleCode"));
-        //IList<IWebElement> listOfCourses => Driver.FindElements(By.XPath("//input[@type='checkbox']"));
+        IWebElement yourTitleOption => Driver.FindElement(By.CssSelector("#Prospect_ApplicantDetails_TitleCode"));        
         IWebElement firstNameTextBox => Driver.FindElement(By.CssSelector("#Prospect_ApplicantDetails_FirstName"));
         IWebElement lastNameTextBox => Driver.FindElement(By.CssSelector("#Prospect_ApplicantDetails_LastName"));
         IWebElement privacyInformationLink => Driver.FindElement(By.XPath("//a[@data-tracking-id='Privacy Information']"));
         IWebElement titleValidationMessage => Driver.FindElement(By.CssSelector("#Prospect_ApplicantDetails_TitleCode-error"));
         IWebElement firstNameValidationMessage => Driver.FindElement(By.XPath("//div[@id='Prospect_ApplicantDetails_FirstName-error']"));
-        IWebElement lastNameValidationMessage => Driver.FindElement(By.CssSelector("#Prospect_ApplicantDetails_LastName-error"));
-        IWebElement nextButton => Driver.FindElement(By.CssSelector("button[type='submit']"));
-
-       
+        IWebElement lastNameValidationMessage => Driver.FindElement(By.XPath("//div[@id='Prospect_ApplicantDetails_LastName-error']"));
+        IWebElement nextButton => Driver.FindElement(By.XPath("//button[contains(.,'Next')]"));       
 
         public void VerifyTitleFirstnameLastname()
         {
@@ -37,10 +31,9 @@ namespace BupaUIAutomation.Pages
         
         public void SelectYourTitleOption(string yourTitle)
         {
-
-
             SelectElement element = new SelectElement(yourTitleOption);
             element.SelectByText(yourTitle);
+            element.SelectedOption.Click();            
         }
 
         public void EnterFirstName(string firstName)
@@ -56,11 +49,11 @@ namespace BupaUIAutomation.Pages
         public void VerifyPrivacyInformationText()
         {
             Assert.AreEqual(true, privacyInformationLink.Enabled);
-
+            Assert.AreEqual("Privacy Information",privacyInformationLink.Text);
         }
         public void VerifyNextButton()
         {
-            Assert.AreEqual(true, nextButton.Enabled);  
+            Assert.AreEqual(true, nextButton.Enabled);
         }
 
         public void SelectNextButton()
@@ -68,29 +61,28 @@ namespace BupaUIAutomation.Pages
             nextButton.Click(); 
         }
 
-        public void CheckValidationstring (string titleValidation, string firstNameValidation, string LastNameValidation)
+        public void VerifyValidationMessage(string expextedTitleValidationMessage, string expectedFirstNameValidationMessage, string expectedLastNameValidationMessage)
         {
-            string t = yourTitleOption.Text;
-            string f = firstNameTextBox.GetAttribute("value");  
-            string l = lastNameTextBox.GetAttribute("value");
 
-            if (string.IsNullOrEmpty(t))
-            {
-                Assert.AreEqual(titleValidation, titleValidationMessage.Text, "Expected and actual validation message doesn't match");
+            if (!string.IsNullOrEmpty(expextedTitleValidationMessage)){ 
 
+            Assert.AreEqual(expextedTitleValidationMessage, titleValidationMessage.Text, "Expected and actual validation message do not match for Title");
             }
-            else if (string.IsNullOrEmpty(f))
+            
+            if (!string.IsNullOrEmpty(expectedFirstNameValidationMessage))
             {
-                Assert.AreEqual(firstNameValidation, firstNameValidationMessage.Text, "Expected and actual validation message doesn't match");
+                Assert.AreEqual(expectedFirstNameValidationMessage, firstNameValidationMessage.Text, "Expected and actual validation message do not match for First Name");
             }
 
-            else if (!string.IsNullOrEmpty(l))
+             if (!string.IsNullOrEmpty(expectedLastNameValidationMessage))
             {
-                Assert.AreEqual(LastNameValidation, lastNameValidationMessage.Text, "Expected and actual validation message doesn't match");
+                Assert.AreEqual(expectedLastNameValidationMessage, lastNameValidationMessage.Text, "Expected and actual validation message do not match for Last Name");
             }
 
-
+             if(string.IsNullOrEmpty(expextedTitleValidationMessage) && string.IsNullOrEmpty(expectedFirstNameValidationMessage) && string.IsNullOrEmpty(expectedLastNameValidationMessage))
+            {                
+                Assert.AreEqual("quote-cover-for", Driver.Title);
+            }
         }
-
     }
 }

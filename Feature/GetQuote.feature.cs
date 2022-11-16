@@ -74,29 +74,41 @@ namespace BupaUIAutomation.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the fileds on the health insurance quote page and the validation messages." +
+        [NUnit.Framework.DescriptionAttribute("Verify the fields on the health insurance quote page and the validation messages." +
             "")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("Mrs", "", "Moss", "", "Please enter your first name.", "", null)]
-        public void VerifyTheFiledsOnTheHealthInsuranceQuotePageAndTheValidationMessages_(string yourTitle, string firstName, string lastName, string titleValidation, string firstNameValidation, string lastNameValidation, string[] exampleTags)
+        [NUnit.Framework.CategoryAttribute("uitest")]
+        [NUnit.Framework.TestCaseAttribute("Empty title", "", "Mark", "Moss", "Please select a title.", "", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Empty FirstName", "Mr", "", "Moss", "", "Please enter your first name.", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Empty LastName", "Mrs", "Mark", "", "", "", "Please enter your last name.", null)]
+        [NUnit.Framework.TestCaseAttribute("Empty title & FirstName", "", "", "Ross", "Please select a title.", "Please enter your first name.", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Empty title & LastName", "", "Mark", "", "Please select a title.", "", "Please enter your last name.", null)]
+        [NUnit.Framework.TestCaseAttribute("Empty FirstName & LastName", "Mrs", "", "", "", "Please enter your first name.", "Please enter your last name.", null)]
+        [NUnit.Framework.TestCaseAttribute("All fields empty", "", "", "", "Please select a title.", "Please enter your first name.", "Please enter your last name.", null)]
+        [NUnit.Framework.TestCaseAttribute("Special char FirstName", "Miss", "@", "Moss", "", "Please re-enter your first name using only letters", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Special char LastName", "Ms", "Mark", "@", "", "", "Please re-enter your last name using only letters.", null)]
+        [NUnit.Framework.TestCaseAttribute("Numbers FirstName", "Dr", "123", "Moss", "", "Please re-enter your first name using only letters", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Numbers lastName", "Professor", "Mark", "456", "", "", "Please re-enter your last name using only letters.", null)]
+        [NUnit.Framework.TestCaseAttribute("All OK", "Reverend", "Mark", "Moss", "", "", "", null)]
+        public void VerifyTheFieldsOnTheHealthInsuranceQuotePageAndTheValidationMessages_(string description, string yourTitle, string firstName, string lastName, string titleValidationMessage, string firstNameValidationMessage, string lastNameValidationssage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "mytag"};
+                    "uitest"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Description", description);
             argumentsOfScenario.Add("YourTitle", yourTitle);
             argumentsOfScenario.Add("FirstName", firstName);
             argumentsOfScenario.Add("LastName", lastName);
-            argumentsOfScenario.Add("TitleValidation", titleValidation);
-            argumentsOfScenario.Add("FirstNameValidation", firstNameValidation);
-            argumentsOfScenario.Add("LastNameValidation", lastNameValidation);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the fileds on the health insurance quote page and the validation messages." +
+            argumentsOfScenario.Add("TitleValidationMessage", titleValidationMessage);
+            argumentsOfScenario.Add("FirstNameValidationMessage", firstNameValidationMessage);
+            argumentsOfScenario.Add("LastNameValidationssage", lastNameValidationssage);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the fields on the health insurance quote page and the validation messages." +
                     "", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 6
+#line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -106,42 +118,42 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
-testRunner.Given("the user navigate to the Bupa website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
+testRunner.Given("the user navigates to the Bupa website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 8
+#line 7
 testRunner.And("the user accepts the cookies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 9
-testRunner.When("the user hover over the health insurance under the mega menu to select get a quot" +
-                        "e sub menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 8
+testRunner.When("the user hovers over the health insurance under the mega menu to select get a quo" +
+                        "te sub menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 10
+#line 9
 testRunner.Then("the user can view the private health insurance quote page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 10
+testRunner.And("the user verifies the text for privacy information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 11
-testRunner.And("the user verify the text for privacy information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the user verifies the field to enter title, firstname, lastname", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
-testRunner.And("the user verify the field to enter title, firstname, lastname", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the user verifies the next button is present and clickable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
-testRunner.And("the user verify the next button is present and clickable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 14
 testRunner.When(string.Format("the user selects title option {0}", yourTitle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 15
+#line 14
 testRunner.And(string.Format("the user enters first name {0}", firstName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 16
+#line 15
 testRunner.And(string.Format("the user enters last name {0}", lastName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 17
+#line 16
 testRunner.And("the user selects the next button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 18
-testRunner.Then(string.Format("the user checks the validation message {0},{1},{2}", titleValidation, firstNameValidation, lastNameValidation), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 17
+testRunner.Then(string.Format("the user checks the validation message {0},{1},{2}", titleValidationMessage, firstNameValidationMessage, lastNameValidationssage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
