@@ -11,8 +11,7 @@ Pre Requisites :
  Github link to this project :
 
  Structure of the project :
-
- Root Project
+ 
 		Features
 			- Contains gherkin feature files
 		Hooks
