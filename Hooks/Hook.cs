@@ -1,11 +1,16 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
+using static System.Net.Mime.MediaTypeNames;
+
 
 namespace SeleniumCSharpNetCore.Hooks
 {
@@ -24,13 +29,38 @@ namespace SeleniumCSharpNetCore.Hooks
             //option.AddArguments("--headless");
 
             new DriverManager().SetUpDriver(new ChromeConfig());
-            Console.WriteLine("Setup");
+            Console.WriteLine("Setup");           
+            
             _driverHelper.Driver = new ChromeDriver(option);
+            
+            
         }
+
+        public void TakeScreenshot()
+        {
+            try
+            {
+                Screenshot ss = ((ITakesScreenshot)_driverHelper.Driver).GetScreenshot();
+                string path = Path.GetFullPath(@"..\..\..\");                
+                string Runname = DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss");
+                string screenshotfilename = path + Runname + ".png";
+                ss.SaveAsFile(screenshotfilename, ScreenshotImageFormat.Png);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+       
 
         [AfterScenario]
         public void AfterScenario()
         {
+            TakeScreenshot();
+
+
             _driverHelper.Driver.Quit();
         }
     }

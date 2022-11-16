@@ -26,6 +26,10 @@ Pre Requisites :
 		Steps
 			- Step definition files of the project
 
+Diagnosys :
+
+When a test failure occurs details will be logged on console along with browser window screenshot is saved at root of the folder
+
 
 
 
