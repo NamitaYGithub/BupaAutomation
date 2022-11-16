@@ -1,6 +1,6 @@
-﻿Feature: Health insurance quote 	
+﻿Feature: Get Bupa new Health insurance quote 	
 
-@uitest
+@NewInsuranceQuoteUTest
 
 Scenario Outline: Verify the fields on the health insurance quote page and the validation messages.
 Given the user navigates to the Bupa website
@@ -21,10 +21,10 @@ Examples:
  |Description				 | YourTitle | FirstName | LastName | TitleValidationMessage  | FirstNameValidationMessage						    | LastNameValidationssage							|
  | Empty title				 |           | Mark      | Moss     | Please select a title.  | 													|													|
  | Empty FirstName			 | Mr        |           | Moss     |                         | Please enter your first name.						|													|
- | Empty LastName			 | Mrs       | Mark      |          |                         |														|	Please enter your last name.				    |
- | Empty title & FirstName	 |           |           | Ross     |  Please select a title. |	Please enter your first name.						|													|
- | Empty title & LastName	 |           | Mark      |          |   Please select a title.|														|	Please enter your last name.					|
- | Empty FirstName & LastName| Mrs       |           |          |                         |		Please enter your first name.					|	Please enter your last name.					|
+ | Empty LastName			 | Mrs       | Mark      |          |                         |														| Please enter your last name.						|
+ | Empty title & FirstName	 |           |           | Ross     | Please select a title.  | Please enter your first name.						|													|
+ | Empty title & LastName	 |           | Mark      |          | Please select a title.  |														| Please enter your last name.						|
+ | Empty FirstName & LastName| Mrs       |           |          |                         | Please enter your first name.					    | Please enter your last name.						|
  | All fields empty			 |           |           |          | Please select a title.  | Please enter your first name.						| Please enter your last name.						|
  | Special char FirstName	 | Miss      | @         | Moss     |                         | Please re-enter your first name using only letters	|													|
  | Special char LastName	 | Ms        | Mark      | @        |                         |														| Please re-enter your last name using only letters.|

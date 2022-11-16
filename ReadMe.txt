@@ -28,7 +28,7 @@ Pre Requisites :
 
 Diagnosys :
 
-When a test failure occurs details will be logged on console along with browser window screenshot is saved at root of the folder
+When a test failure occurs details will be logged on console along with browser window screenshot is saved in "Screenshots"" folder
 
 
 

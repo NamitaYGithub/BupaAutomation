@@ -18,7 +18,13 @@ namespace SeleniumCSharpNetCore.Hooks
     public sealed class Hook
     {
         private DriverHelper _driverHelper;
-        public Hook(DriverHelper driverHelper) => _driverHelper = driverHelper;
+        private readonly ScenarioContext _scenarioContext;
+        public Hook(DriverHelper driverHelper, ScenarioContext scenarioContext)
+        {
+            _driverHelper = driverHelper;
+            _scenarioContext = scenarioContext;
+        }
+            
 
         [BeforeScenario]
         public void BeforeScenario()
@@ -43,7 +49,7 @@ namespace SeleniumCSharpNetCore.Hooks
                 Screenshot ss = ((ITakesScreenshot)_driverHelper.Driver).GetScreenshot();
                 string path = Path.GetFullPath(@"..\..\..\");                
                 string Runname = DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss");
-                string screenshotfilename = path + Runname + ".png";
+                string screenshotfilename = path + "\\Screenshots\\" + Runname + ".png";
                 ss.SaveAsFile(screenshotfilename, ScreenshotImageFormat.Png);
             }
             catch (Exception e)
@@ -51,16 +57,18 @@ namespace SeleniumCSharpNetCore.Hooks
                 Console.WriteLine(e.Message);
                 throw;
             }
-        }
+        }     
 
-       
+
 
         [AfterScenario]
         public void AfterScenario()
         {
-            TakeScreenshot();
-
-
+            if(_scenarioContext.TestError != null)
+            {
+                TakeScreenshot();
+            }
+            
             _driverHelper.Driver.Quit();
         }
     }
