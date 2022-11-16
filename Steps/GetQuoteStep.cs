@@ -23,7 +23,7 @@ namespace SeleniumCSharpNetCore.Steps
             healthInsuranceQuotePage = new HealthInsuranceQuotePage(_driverHelper.Driver);  
         }
 
-        [Given(@"the user navigate to the Bupa website")]
+        [Given(@"the user navigates to the Bupa website")]
         public void GivenTheUserOpensAWebBrowser()
         {
             homePage.NavigateToURL();
@@ -36,7 +36,7 @@ namespace SeleniumCSharpNetCore.Steps
             homePage.AcceptCookies();
         }
 
-        [When(@"the user hover over the health insurance under the mega menu to select get a quote sub menu")]
+        [When(@"the user hovers over the health insurance under the mega menu to select get a quote sub menu")]
         public void WhenTheUserHoverOverTheHealthInsuranceUnderTheMegaMenuToSelectGetAQuoteSubMenu()
         {
             homePage.selectGetaQuoteSubMenu();  
@@ -47,21 +47,22 @@ namespace SeleniumCSharpNetCore.Steps
         public void ThenTheUserCanViewThePrivateHealthInsuranceQuotePage()
         {
            
+            Assert.AreEqual("Private Health Insurance Quote Online | Bupa UK", _driverHelper.Driver.Title); 
         }
 
-        [Then(@"the user verify the text for privacy information")]
+        [Then(@"the user verifies the text for privacy information")]
         public void ThenTheUserVerifyTheTextForPrivacyInformation()
         {
             healthInsuranceQuotePage.VerifyPrivacyInformationText();    
         }
 
-        [Then(@"the user verify the field to enter title, firstname, lastname")]
+        [Then(@"the user verifies the field to enter title, firstname, lastname")]
         public void ThenTheUserVerifyTheFieldToEnterTitleFirstnameLastname()
         {
             healthInsuranceQuotePage.VerifyTitleFirstnameLastname();    
         }
 
-        [Then(@"the user verify the next button is present and clickable")]
+        [Then(@"the user verifies the next button is present and clickable")]
         public void ThenTheUserVerifyTheNextButtonIsPresentAndClickable()
         {
             healthInsuranceQuotePage.VerifyNextButton();

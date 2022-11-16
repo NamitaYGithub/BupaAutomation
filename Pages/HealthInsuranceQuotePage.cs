@@ -2,6 +2,7 @@
 using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumCSharpNetCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -57,16 +58,20 @@ namespace BupaUIAutomation.Pages
         public void VerifyPrivacyInformationText()
         {
             Assert.AreEqual(true, privacyInformationLink.Enabled);
+            Assert.AreEqual("Privacy Information",privacyInformationLink.Text);
 
         }
         public void VerifyNextButton()
         {
-            Assert.AreEqual(true, nextButton.Enabled);  
+            Assert.AreEqual(true, nextButton.Enabled);
+            
+
         }
 
         public void SelectNextButton()
         {
             nextButton.Click(); 
+
         }
 
         public void VerifyValidationMessage(string expextedTitleValidationMessage, string expectedFirstNameValidationMessage, string expectedLastNameValidationMessage)
@@ -82,12 +87,16 @@ namespace BupaUIAutomation.Pages
                 Assert.AreEqual(expectedFirstNameValidationMessage, firstNameValidationMessage.Text, "Expected and actual validation message do not match for First Name");
             }
 
-             if (!string.IsNullOrEmpty(expectedFirstNameValidationMessage))
+             if (!string.IsNullOrEmpty(expectedLastNameValidationMessage))
             {
                 Assert.AreEqual(expectedFirstNameValidationMessage, lastNameValidationMessage.Text, "Expected and actual validation message do not match for Last Name");
             }
 
-
+             if(string.IsNullOrEmpty(expextedTitleValidationMessage) && string.IsNullOrEmpty(expectedFirstNameValidationMessage) && string.IsNullOrEmpty(expectedLastNameValidationMessage))
+            {
+                
+                Assert.AreEqual("quote-cover-for", Driver.Title);
+            }
         }
 
     }

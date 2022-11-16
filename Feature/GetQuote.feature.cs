@@ -79,12 +79,8 @@ namespace BupaUIAutomation.Feature
         [NUnit.Framework.CategoryAttribute("uitest")]
         [NUnit.Framework.TestCaseAttribute("Empty title", "", "Mark", "Moss", "Please select a title.", "", "", null)]
         [NUnit.Framework.TestCaseAttribute("Empty FirstName", "Mr", "", "Moss", "", "Please enter your first name.", "", null)]
-        [NUnit.Framework.TestCaseAttribute("Empty LastNamw", "Mrs", "Mark", "", "", "", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Empty LastName", "Mrs", "Mark", "", "", "", "", null)]
         [NUnit.Framework.TestCaseAttribute("All fileds empty", "", "", "", "Please select a title.", "Please enter your first name.", "Please enter your last name.", null)]
-        [NUnit.Framework.TestCaseAttribute("Special char FirstName", "Miss", "@", "Moss", "", "Please re-enter your first name using only letters.", "", null)]
-        [NUnit.Framework.TestCaseAttribute("Special char LastName", "Ms", "Mark", "@", "", "", "Please re-enter your last name using only letters.", null)]
-        [NUnit.Framework.TestCaseAttribute("Numbers FirstName", "Dr", "123", "Moss", "", "Please re-enter your first name using only letters.", "", null)]
-        [NUnit.Framework.TestCaseAttribute("Numbers lastName", "Professor", "Mark", "456", "", "", "Please re-enter your last name using only letters.", null)]
         [NUnit.Framework.TestCaseAttribute("All OK", "Reverend", "Mark", "Moss", "", "", "", null)]
         public void VerifyTheFieldsOnTheHealthInsuranceQuotePageAndTheValidationMessages_(string description, string yourTitle, string firstName, string lastName, string titleValidationMessage, string firstNameValidationMessage, string lastNameValidationssage, string[] exampleTags)
         {
@@ -116,26 +112,26 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
-testRunner.Given("the user navigate to the Bupa website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("the user navigates to the Bupa website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
 testRunner.And("the user accepts the cookies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 8
-testRunner.When("the user hover over the health insurance under the mega menu to select get a quot" +
-                        "e sub menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("the user hovers over the health insurance under the mega menu to select get a quo" +
+                        "te sub menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
 testRunner.Then("the user can view the private health insurance quote page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 10
-testRunner.And("the user verify the text for privacy information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the user verifies the text for privacy information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-testRunner.And("the user verify the field to enter title, firstname, lastname", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the user verifies the field to enter title, firstname, lastname", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
-testRunner.And("the user verify the next button is present and clickable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And("the user verifies the next button is present and clickable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
 testRunner.When(string.Format("the user selects title option {0}", yourTitle), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

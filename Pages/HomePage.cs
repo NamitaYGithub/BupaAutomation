@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace SeleniumCSharpNetCore.Pages
@@ -41,7 +42,8 @@ namespace SeleniumCSharpNetCore.Pages
             //Assert.AreEqual("Health Insurance", healthInsuranceMainMenu.Text);
             Actions action = new Actions(Driver);
             action.MoveToElement(healthInsuranceMainMenu).Perform();
-            //Assert.AreEqual(true, getAQuoteSubMenu.Displayed);
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(getAQuoteSubMenu));
             action.MoveToElement(getAQuoteSubMenu).Perform();
             action.Click().Build().Perform();
         }
