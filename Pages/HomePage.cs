@@ -47,12 +47,5 @@ namespace SeleniumCSharpNetCore.Pages
             action.MoveToElement(getAQuoteSubMenu).Perform();
             action.Click().Build().Perform();
         }
-
-       
-
-
-
-
-
     }
 }

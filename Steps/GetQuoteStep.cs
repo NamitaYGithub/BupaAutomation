@@ -39,14 +39,12 @@ namespace SeleniumCSharpNetCore.Steps
         [When(@"the user hovers over the health insurance under the mega menu to select get a quote sub menu")]
         public void WhenTheUserHoverOverTheHealthInsuranceUnderTheMegaMenuToSelectGetAQuoteSubMenu()
         {
-            homePage.selectGetaQuoteSubMenu();  
-           
+            homePage.selectGetaQuoteSubMenu();             
         }
 
         [Then(@"the user can view the private health insurance quote page")]
         public void ThenTheUserCanViewThePrivateHealthInsuranceQuotePage()
-        {
-           
+        {           
             Assert.AreEqual("Private Health Insurance Quote Online | Bupa UK", _driverHelper.Driver.Title); 
         }
 
@@ -67,7 +65,6 @@ namespace SeleniumCSharpNetCore.Steps
         {
             healthInsuranceQuotePage.VerifyNextButton();
         }
-
 
         [When(@"the user selects title option (.*)")]
         public void WhenTheUserSelectsTitleOptionMrs(string yourTitle)
@@ -98,11 +95,5 @@ namespace SeleniumCSharpNetCore.Steps
         {
             healthInsuranceQuotePage.VerifyValidationMessage(titleValidation, firstNameValidation, LastNameValidation);
         }
-
-
-
-
-
-
     }
 }
