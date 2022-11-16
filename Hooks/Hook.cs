@@ -10,10 +10,10 @@ using WebDriverManager.DriverConfigs.Impl;
 namespace SeleniumCSharpNetCore.Hooks
 {
     [Binding]
-    public sealed class Hooks1
+    public sealed class Hook
     {
         private DriverHelper _driverHelper;
-        public Hooks1(DriverHelper driverHelper) => _driverHelper = driverHelper;
+        public Hook(DriverHelper driverHelper) => _driverHelper = driverHelper;
 
         [BeforeScenario]
         public void BeforeScenario()
@@ -31,7 +31,7 @@ namespace SeleniumCSharpNetCore.Hooks
         [AfterScenario]
         public void AfterScenario()
         {
-            //_driverHelper.Driver.Quit();
+            _driverHelper.Driver.Quit();
         }
     }
 }

@@ -18,15 +18,16 @@ Then the user checks the validation message <TitleValidationMessage>,<FirstNameV
 
 
 Examples:
- |Description        | YourTitle | FirstName | LastName | TitleValidationMessage  | FirstNameValidationMessage    | LastNameValidationssage     |
- | Empty title       |           | Mark      | Moss     | Please select a title.  | Please enter your first name. |                             |
- | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
- | Empty LastNamw    | Mr        | Mark      |          |                         | Please enter your first name. |                             |
- | All fieds empty   |           |           |          | Please select a title.  | Please enter your first name. | Please enter your last name.|
- | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
- | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
- | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
- | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
- | Empty FirstName   | Mr        |           | Moss     |                         | Please enter your first name. |                             |
+ |Description				| YourTitle	| FirstName | LastName | TitleValidationMessage  | FirstNameValidationMessage							| LastNameValidationssage							|
+ | Empty title				|           | Mark      | Moss     | Please select a title.  | 														|													|
+ | Empty FirstName			| Mr        |           | Moss     |                         | Please enter your first name.						|													|
+ | Empty LastNamw			| Mrs       | Mark      |          |                         |														|													|
+ | All fileds empty			|           |           |          | Please select a title.  | Please enter your first name.						| Please enter your last name.						|
+ | Special char FirstName	| Miss      | @         | Moss     |                         | Please re-enter your first name using only letters.	|													|
+ | Special char LastName	| Ms        | Mark      | @        |                         |														| Please re-enter your last name using only letters.|
+ | Numbers FirstName		| Dr        | 123       | Moss     |                         | Please re-enter your first name using only letters.	|													|
+ | Numbers lastName			| Professor | Mark      | 456	   |                         | 														| Please re-enter your last name using only letters.|
+ | All OK					| Reverend  | Mark      | Moss	   |                         | 														|													|
+
 
 

@@ -69,26 +69,22 @@ namespace BupaUIAutomation.Pages
             nextButton.Click(); 
         }
 
-        public void CheckValidationstring (string titleValidation, string firstNameValidation, string LastNameValidation)
+        public void VerifyValidationMessage(string expextedTitleValidationMessage, string expectedFirstNameValidationMessage, string expectedLastNameValidationMessage)
         {
 
-            string title = yourTitleOption.GetAttribute("value").ToString();
-            string firstName = firstNameTextBox.GetAttribute("value");  
-            string lastName = lastNameTextBox.GetAttribute("value");
+            if (!string.IsNullOrEmpty(expextedTitleValidationMessage)){ 
 
-            if (string.IsNullOrEmpty(title))
-            {
-                Assert.AreEqual(titleValidation, titleValidationMessage.Text, "Expected and actual validation message doesn't match");
-
+            Assert.AreEqual(expextedTitleValidationMessage, titleValidationMessage.Text, "Expected and actual validation message do not match for Title");
             }
-            else if (string.IsNullOrEmpty(firstName))
+            
+            if (!string.IsNullOrEmpty(expectedFirstNameValidationMessage))
             {
-                Assert.AreEqual(firstNameValidation, firstNameValidationMessage.Text, "Expected and actual validation message doesn't match");
+                Assert.AreEqual(expectedFirstNameValidationMessage, firstNameValidationMessage.Text, "Expected and actual validation message do not match for First Name");
             }
 
-            else if (string.IsNullOrEmpty(lastName))
+             if (!string.IsNullOrEmpty(expectedFirstNameValidationMessage))
             {
-                Assert.AreEqual(LastNameValidation, lastNameValidationMessage.Text, "Expected and actual validation message doesn't match");
+                Assert.AreEqual(expectedFirstNameValidationMessage, lastNameValidationMessage.Text, "Expected and actual validation message do not match for Last Name");
             }
 
 

@@ -95,7 +95,7 @@ namespace SeleniumCSharpNetCore.Steps
         [Then(@"the user checks the validation message (.*),(.*),(.*)")]
         public void ThenTheUserChecksTheValidationMessage(string titleValidation, string firstNameValidation, string LastNameValidation)
         {
-            healthInsuranceQuotePage.CheckValidationstring(titleValidation, firstNameValidation, LastNameValidation);
+            healthInsuranceQuotePage.VerifyValidationMessage(titleValidation, firstNameValidation, LastNameValidation);
         }
 
 

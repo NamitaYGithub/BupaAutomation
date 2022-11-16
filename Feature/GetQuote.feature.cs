@@ -77,8 +77,15 @@ namespace BupaUIAutomation.Feature
         [NUnit.Framework.DescriptionAttribute("Verify the fields on the health insurance quote page and the validation messages." +
             "")]
         [NUnit.Framework.CategoryAttribute("uitest")]
-        [NUnit.Framework.TestCaseAttribute("Empty title", "Mrs", "", "Moss", "Please select a title.", "Please enter your first name.", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Empty title", "", "Mark", "Moss", "Please select a title.", "", "", null)]
         [NUnit.Framework.TestCaseAttribute("Empty FirstName", "Mr", "", "Moss", "", "Please enter your first name.", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Empty LastNamw", "Mrs", "Mark", "", "", "", "", null)]
+        [NUnit.Framework.TestCaseAttribute("All fileds empty", "", "", "", "Please select a title.", "Please enter your first name.", "Please enter your last name.", null)]
+        [NUnit.Framework.TestCaseAttribute("Special char FirstName", "Miss", "@", "Moss", "", "Please re-enter your first name using only letters.", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Special char LastName", "Ms", "Mark", "@", "", "", "Please re-enter your last name using only letters.", null)]
+        [NUnit.Framework.TestCaseAttribute("Numbers FirstName", "Dr", "123", "Moss", "", "Please re-enter your first name using only letters.", "", null)]
+        [NUnit.Framework.TestCaseAttribute("Numbers lastName", "Professor", "Mark", "456", "", "", "Please re-enter your last name using only letters.", null)]
+        [NUnit.Framework.TestCaseAttribute("All OK", "Reverend", "Mark", "Moss", "", "", "", null)]
         public void VerifyTheFieldsOnTheHealthInsuranceQuotePageAndTheValidationMessages_(string description, string yourTitle, string firstName, string lastName, string titleValidationMessage, string firstNameValidationMessage, string lastNameValidationssage, string[] exampleTags)
         {
             string[] @__tags = new string[] {
